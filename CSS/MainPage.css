@@ -10,6 +10,7 @@ header{
     padding: 12px 50px;
     height: 70px;
     align-items: center;
+    background-color: #96df98;
 }
 li{
     list-style: none;
