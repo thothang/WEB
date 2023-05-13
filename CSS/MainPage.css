@@ -196,7 +196,7 @@ footer {
 }
 
 
-/* cotegory */
+/* --------------------------------------------cartegory--------------------------------------------- */
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -235,6 +235,7 @@ footer {
 .cartegory-right-top-item {
     flex: 1;
     padding: 0 12px;
+    cursor: pointer;
 }
 
 .cartegory-right-top-item select {

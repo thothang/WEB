@@ -22,13 +22,13 @@
 </head>
 
 <body>
-    <header>
+<header>
         <div class="logo">
-            <a href="index.html"><img src="IMAGE/MainLogo.png" alt="" height="50px" width="70px"></a>
+            <a href="index.php"><img src="IMAGE/MainLogo.png" alt="" height="50px" width="70px"></a>
         </div>
         <div class="menu">
-            <li><a href="index.html">Trang Chủ</a></li>
-            <li><a href="Cartegory.html">Sản Phẩm</a>
+            <li><a href="index.php">Trang Chủ</a></li>
+            <li><a href="Cartegory.php">Sản Phẩm</a>
                 <ul class="sub-menu">
                     <li><a href="">Mất Ngủ - Stress</a></li>
                     <li><a href="">Giải Độc Gan - Mát Gan</a></li>
@@ -44,8 +44,8 @@
         </div>
         <div class="orthers">
             <li><input placeholder="Tìm Kiếm" type="text"> <i class="fas fa-search"></i></li>
-            <li><i class="fas fa-cart-plus"></i></li>
-            <li><i class="fa-solid fa-user"></i></li>
+            <li><a href="Cart.php"><i class="fas fa-cart-plus"></a></i></li>
+            <li><a href="Login_Register/login.php"><i class="fa-solid fa-user"></i></a></li>
         </div>
     </header>
     <!-- product -->

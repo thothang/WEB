@@ -21,13 +21,14 @@
 </head>
 
 <body>
-    <header>
+   
+<header>
         <div class="logo">
-            <a href="index.html"><img src="IMAGE/MainLogo.png" alt="" height="50px" width="70px"></a>
+            <a href="index.php"><img src="IMAGE/MainLogo.png" alt="" height="50px" width="70px"></a>
         </div>
         <div class="menu">
-            <li><a href="index.html">Trang Chủ</a></li>
-            <li><a href="Cartegory.html">Sản Phẩm</a>
+            <li><a href="index.php">Trang Chủ</a></li>
+            <li><a href="Cartegory.php">Sản Phẩm</a>
                 <ul class="sub-menu">
                     <li><a href="">Mất Ngủ - Stress</a></li>
                     <li><a href="">Giải Độc Gan - Mát Gan</a></li>
@@ -43,73 +44,112 @@
         </div>
         <div class="orthers">
             <li><input placeholder="Tìm Kiếm" type="text"> <i class="fas fa-search"></i></li>
-            <li><i class="fas fa-cart-plus"></i></li>
-            <li><i class="fa-solid fa-user"></i></li>
+            <li><a href="Cart.php"><i class="fas fa-cart-plus"></a></i></li>
+            <li><a href="Login_Register/login.php"><i class="fa-solid fa-user"></i></a></li>
         </div>
     </header>
-   <!--------------------------------------------------- payment ------------------------------>
-
-    <section class="payment">
-        <div class="container">
-            <div class="payment-top-wrap">
-                <div class="payment-top">
-                    <div class="payment-top-cart payment-top-item">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="payment-top-address payment-top-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="payment-top-payment payment-top-item">
-                        <i class="fas fa-money-check-alt"></i>
-                    </div>
+<!---------------------------------------------- cart --------------------------------------------------------->
+<section class="cart">
+    <div class="container">
+        <div class="cart-top-wrap">
+            <div class="cart-top">
+                <div class="cart-top-cart cart-top-item">
+                    <i class="fas fa-shopping-cart cart-top-item"></i>
+                </div>
+                <div class="cart-top-address cart-top-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="cart-top-payment cart-top-item">
+                    <i class="fas fa-money-check-alt"></i>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="payment-content row">
-                <div class="payment-content-left">
-                    <div class="payment-content-left-method-delivery">
-                        <p style="font-weight: bold;">Phương thức giao hàng</p>
-                        <div class="payment-content-left-method-delivery-item">
-                            <input type="radio" checked>
-                            <label for="">Giao hàng chuyển phát nhanh</label>
-                        </div>
-                    </div>
-                    <div class="payment-content-left-method-delivery-payment">
-                        <p style="font-weight: bold;">Phương thức thanh toán</p>
-                        <div class="payment-content-left-method-delivery-item">
-                            <input type="radio" name="method-payment" checked>
-                            <label for="">Thanh toán bằng thẻ tín dụng</label>
-                        </div>
-                        <div class="payment-content-left-method-delivery-item-img">
-                            <img src="IMAGE/Payment/visa.png" alt="">
-                        </div>
-                        <div class="payment-content-left-method-delivery-item">
-                            <input type="radio" name="method-payment">
-                            <label for="">Thanh toán bằng thẻ ATM</label>
-                        </div>
-                        <div class="payment-content-left-method-delivery-item-img">
-                            <img src="IMAGE/Payment/anthBank.png" alt="">
-                        </div>
-                        <div class="payment-content-left-method-delivery-item">
-                            <input type="radio" name="method-payment">
-                            <label for="">Thanh toán khi nhận hàng</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="payment-content-right">
-                    <div class="payment-content-right-button">
-
-                    </div>
-                </div>
-
+    </div>
+    <div class="container">
+        <div class="cart-content row">
+            <div class="cart-content-left">
+                <table>
+                    <tr>
+                        <th>Sản Phẩm</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Thành Tiền</th>
+                        <th>Xoá</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="IMAGE/SP/Bo-cong-anh.png" alt="">
+                        </td>
+                        <td>
+                            <p>Bồ Công Anh</p>
+                        </td>
+                        <td>
+                            <input type="number" min="1" value="1">
+                        </td>
+                        <td>
+                            <p>150.000<sup>đ</sup></p>
+                        </td>
+                        <td>
+                            <span>X</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="IMAGE/SP/Che-day.png" alt="">
+                        </td>
+                        <td>
+                            <p>Chè Dây</p>
+                        </td>
+                        <td>
+                            <input type="number" min="1" value="1">
+                        </td>
+                        <td>
+                            <p>50.000<sup>đ</sup></p>
+                        </td>
+                        <td>
+                            <span>X</span>
+                        </td>
+                    </tr>
+                </table>
             </div>
-            <div class="payment-content-right-bottom-button">
-                <button>Tiếp tục thanh toán</button>
+            <div class="cart-content-right">
+                <table>
+                    <tr>
+                        <th colspan="2">Tổng Tiền Giỏ Hàng</th>
+                    </tr>
+                    <tr>
+                        <td>Tổng Sản Phẩm</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Tổng Tiền Hàng</td>
+                        <td><p>300.000<sup>đ</sup></p></td>
+                    </tr>
+                    <tr>
+                        <td>Tạm Tính</td>
+                        <td><p style="color: black; font-weight: bold;">300.000<sup>đ</sup></p></td>
+                    </tr>
+                </table>
+                <div class="cart-content-right-button">
+                    <a href="delivery.php"><button>Thanh Toán</button></a>
+                </div>
+                <div class="cart-content-right-dangnhap">
+                    <p>Hãy <a href="">Đăng Nhập</a> tài khoản của bạn để tích điểm thành viên</p>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
 
 
 
