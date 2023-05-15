@@ -38,7 +38,11 @@ include "class/product_class.php";
                     <label for="">Nhập giá sản phẩm<span style="color: red;">*</span></label>
                     <input name="product_price" required type="text" placeholder="Giá sản phẩm">
                     <label for="">Nhập mô tả<span style="color: red;">*</span></label>
-                    <textarea name="product_textarea" required  name="" id="" cols="30" rows="10" placeholder="Mô tả"></textarea>
+                    <textarea name="product_textarea_mota" required  name="" id="" cols="30" rows="10" placeholder="Mô tả"></textarea>
+                    <label for="">Nhập thành phần<span style="color: red;">*</span></label>
+                    <textarea name="product_textarea_thanhphan" required  name="" id="" cols="30" rows="10" placeholder="Mô tả"></textarea>
+                    <label for="">Nhập công dụng<span style="color: red;">*</span></label>
+                    <textarea name="product_textarea_congdung" required  name="" id="" cols="30" rows="10" placeholder="Mô tả"></textarea>
                     <label for="">Ảnh sản phẩm<span style="color: red;">*</span></label>
                     <input name="product_img" type="file">
                     <label for="">Ảnh mô tả<span style="color: red;">*</span></label>

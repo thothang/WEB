@@ -114,8 +114,8 @@
                             echo '<div class="cartegory-right-content-item">';
                             // Kiểm tra và hiển thị ảnh
                           
-                            echo '<a href="Product.php?'.$row["product_id"].'"><img src="IMAGE/SP/'.$row["product_img"].'" alt="">';
-                         
+                            echo '<a href="Product.php?product_id='.$row["product_id"].'"><img src="IMAGE/SP/'.$row["product_img"].'" alt="">';
+
                             // Hiển thị các cột của hàng dữ liệu
                             echo '<h1>' . $row["product_name"].'</h1>';
                             echo '<p>' . $row["product_price"].'<sup>đ</sup></p></a>';

@@ -59,29 +59,59 @@
         </div>
     </header>
     <!-- product -->
+
+
     <section class="product">
         <div class="container">
             <div class="product-top row">
-                <p>Trang Chủ</p> <span>&#10230</span>
             </div>
             <div class="product-content row">
                 <div class="product-content-left row">
                     <div class="product-content-left-big-img">
-                        <img src="IMAGE/SP/Bo-cong-anh.png" alt="">
-                    </div>
-                    <div class="product-content-left-small-img">
-                        <img src="IMAGE/SP/Bo-cong-anh.png" alt="">
-                        <img src="IMAGE/SP/Bo-cong-anh-1.png" alt="">
-                        <img src="IMAGE/SP/Bo-cong-anh-2.png" alt="">
-                        <img src="IMAGE/SP/Bo-cong-anh-3.png" alt="">
+                        <?php
+                            include 'PHP/connect.php';
+
+                            if (!isset($_GET['product_id']) || $_GET['product_id'] == null) {
+                                echo "<script> window.location = 'Cartegory.php'</script>";
+                            } else {
+                                $product_id = $_GET['product_id'];
+                            }
+
+                            $sql = "SELECT * FROM tbl_product WHERE product_id = '$product_id'";
+                            $result = $conn->query($sql); // Thực hiện truy vấn
+
+                            if ($result->num_rows > 0) {
+                                $row = $result->fetch_assoc();
+                                echo '<img src="IMAGE/SP/'.$row["product_img"].'" alt="">';
+                            } else {
+                                echo "Không tìm thấy sản phẩm với ID: $product_id";
+                            }
+                            ?>
+
+                         </div>
+                            <div class="product-content-left-small-img">
+                            <?php
+
+                            $sql1 = "SELECT * FROM tbl_product_img_desc WHERE product_id = '$product_id'";
+                            $result1 = $conn->query($sql1); // Thực hiện truy vấn
+
+                            if ($result1->num_rows > 0) {
+                                while($row1 = $result1->fetch_assoc()) {
+                                    echo '<img src="IMAGE/SP/'.$row1["product_img_desc"].'" alt="">';
+                                }
+                                
+                            } else {
+                                echo "Không tìm thấy hình ảnh và mô tả cho sản phẩm với ID: $product_id";
+                            }
+                            ?>
                     </div>
                 </div>
                 <div class="product-content-right">
                     <div class="product-content-right-product-name">
-                        <h1>Bồ Công Anh – Giải độc gan, thanh lọc cơ thể, ngừa Ung thư</h1>
+                        <?php echo'<h1>'.$row["product_name"].'</h1>';?>
                     </div>
                     <div class="product-content-right-product-price">
-                        <p>150.000<sup>đ</sup></p>
+                    <?php echo'<p>'.$row["product_price"].'<sup>đ</sup></p>';?>
                     </div>
                     <div class="product-content-right-product-quantity">
                         <p style="font-weight: bold;">Số Lượng:</p>
@@ -90,7 +120,8 @@
                     </div>
                     <div class="product-content-right-product-button">
                         <button><i class="fas fa-shopping-cart"></i>
-                            <p>MUA HÀNG</p>
+                            <a href=""><p>MUA HÀNG</p></a>
+                            
                         </button>
                     </div>
 
@@ -113,71 +144,13 @@
                             
                             <div class="product-content-right-bottom-content">
                                 <div class="product-content-right-bottom-content-mota">
-                                    Nếu để ý bạn sẽ thấy bồ công anh là loài hoa mọc dại rất phổ biến ở nhiều vùng miền
-                                    nước ta, nhiều nhất là các tỉnh miền núi phía Bắc. Không chỉ mang vẻ đẹp hoang dại
-                                    mạnh mẽ, bồ công anh còn được biết đến với nhiều lợi ích giành cho sức khỏe con
-                                    người. Bài viết dưới đây, hãy cùng chúng tôi làm rõ tác dụng giải độc gan, thanh lọc
-                                    cơ thể của thảo dược này. <br>
-                                    Bồ công anh có tên khoa học là Lactuca thuộc họ Cúc, còn được biết được biết đến với
-                                    tên gọi khác như cây diếp trời, cây mũi mác hay cây diếp hoang… Tuy nhiên, ở Việt
-                                    Nam, tên bồ công anh vẫn thân thuộc và hữu dụng nhất. Đây là loại cây thân thảo, như
-                                    bụi cỏ dại thấp khoảng 50 -70 cm. Lá mọc so le nhau, hoa màu vàng rực rỡ. Loài thực
-                                    vật này thường ra hoa vào tháng 6 và kết quả vào tháng 9 hàng năm. <br>
+                                <?php echo'<p>'.$row["product_textarea_mota"].'</p>';?>
                                 </div>
                                 <div class="product-content-right-bottom-content-thanhphan">
-                                    Thảo dược là loại thực vật lành tính, có thể sử dụng để làm thức ăn trong món salad
-                                    bởi trong lá chứa nhiều protein hơn rau bina (rau chân vịt). Lá bồ công anh rất giàu
-                                    canxi, sắt, magiê, phốt pho, kali và các loại vitamin khác. <br>
-                                    Trong Đông y, cây thuốc có tác dụng thanh nhiệt, giải độc, lợi thấp thông lâm. Đây
-                                    là một vị thuốc đầu bảng trong lĩnh vực thanh nhiệt giải độc của Đông y do tác dụng
-                                    tiêu độc kháng viêm mà không gây tác dụng phụ. Đây còn được ví như thuốc kháng sinh
-                                    thực vật.
+                                <?php echo'<p>'.$row["product_textarea_thanhphan"].'</p>';?>
                                 </div>
                                 <div class="product-content-right-bottom-content-congdung">
-                                    Bộ phận dùng làm thuốc từ bồ công anh gần như là tất cả các bộ phận. Do đó nhiều
-                                    người thu hái nguyên cây về, bỏ đất, rửa sạch, để ráo rồi cắt nhỏ, phơi hoặc sấy
-                                    khô. Cũng có người chỉ lấy phần lá về phơi khô làm thuốc. <br>
-
-                                    Theo nghiên cứu y học, chất nhựa và chất đắng của dược liệu là từ nhiều hoạt chất
-                                    tạo nên, các thành phần này mang đến nhiều lợi ích cho sức khỏe người dùng. Đặc biệt
-                                    là các công dụng mát gan, đẹp da và giải độc gan từ loài hoa dại này.<br>
-
-                                    Bồ công anh mát gan, giải độc gan<br>
-                                    Có chứa nhiều hoạt chất kháng khuẩn, chống viêm và tăng cường đào thải các độc tố
-                                    trong gan, tính mát từ cây thuốc còn giúp thanh nhiệt cơ thể, rất hiệu quả trong
-                                    việc giải độc gan.<br>
-
-                                    Không chỉ thế vị thảo dược này còn giúp đào thải axit uric gây ra bệnh Gout ở người
-                                    và giảm thiểu tích tụ mỡ thừa giúp điều trị hiệu quả bệnh gan nhiễm mỡ.<br>
-
-                                    Bồ công anh trị mụn, làm đẹp da<br>
-                                    Uống trà bồ công anh mỗi ngày là giải pháp giúp bạn chăm sóc da từ bên trong vô cùng
-                                    hiệu quả, lại đơn giản không mất nhiều công sức, tiền bạc. Các hoạt chất có trong
-                                    thảo dược giúp thanh nhiệt cơ thể, mát gan đẩy lùi tình trạng mụn, giúp làn da luôn
-                                    căng bóng, mịn màng.<br>
-
-                                    Và rất nhiều công dụng khác từ bồ công anh<br>
-                                    Ngoài tác dụng mát gan, đẹp da và giải độc gan, thảo dược này còn mang đến nhiều
-                                    công dụng khác, bao gồm:<br>
-
-                                    Cải thiện chức năng thận: giúp lợi tiểu, thanh lọc cơ thể, ngăn ngừa sỏi đường tiết
-                                    niệu, sỏi thận<br>
-                                    Ngăn ngừa, phòng chống ung thư: chiết xuất thảo dược có chứa hoạt chất taraxacum
-                                    officinale có khả năng ngăn chặn sự phát triển của các khối u, tế bào gây ung
-                                    thư<br>
-                                    Giảm cân: sử dụng trà bồ công anh mỗi ngày là giải pháp giúp chị em phụ nữ giảm cân
-                                    giữ dáng và kiểm soát cân nặng vừa an toàn, vừa hiệu quả<br>
-                                    Cải thiện chức năng tiêu hóa, nhuận tràng, điều trị chứng ăn uống khó tiêu<br>
-                                    Giúp xương chắc khỏe: dược liệu có chứa nhiều khoáng chất thiết yếu cần thiết cho
-                                    xương như canxi, photpho, magie giúp xương chắc khỏe, đồng thời ngăn ngừa loãng
-                                    xương ở người cao tuổi<br>
-                                    Lợi sữa: phụ nữ cho con bú sử dụng vị thuốc này có thể thông sữa, lợi sữa cho bé
-                                    bú<br>
-                                    Dùng trà bồ công anh hỗ trợ điều trị tiểu đường<br>
-                                    Làm lành các vết thương ngoài da do côn trùng đốt<br>
-                                    Điều trị đau dạ dày<br>
-                                    Chống suy nhược cơ thể<br>
-                                    Giảm đau mắt<br>
+                                <?php echo'<p>'.$row["product_textarea_congdung"].'</p>';?>
                                 </div>
                             </div>
 

@@ -261,11 +261,11 @@ footer {
     width: calc(25% - 12px);
     text-align: center;
     padding: 12px 0;
-
 }
 
 .cartegory-right-content-item img {
     width: 100%;
+    
 }
 
 .cartegory-right-content-item h1 {
