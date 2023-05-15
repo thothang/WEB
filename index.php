@@ -70,18 +70,28 @@
         <div class="menu">
             <li><a href="index.php">Trang Chủ</a></li>
             <li><a href="Cartegory.php">Sản Phẩm</a>
-                <ul class="sub-menu">
-                    <li><a href="">Mất Ngủ - Stress</a></li>
-                    <li><a href="">Giải Độc Gan - Mát Gan</a></li>
-                    <li><a href="">Bồi Bổ Cơ Thể</a></li>
-                    <li><a href="">Huyết Áp - Tim Mạch</a></li>
-                    <li><a href="">Dạ Dày - Tiêu Hoá</a></li>
-                    <li><a href="">Giảm Cân - Làm Đẹp</a></li>
-                    <li><a href="">Xương Khớp - Đau Nhức</a></li>
-                </ul>
+            <?php
+                    include 'PHP/connect.php';
+
+                    // Thực hiện truy vấn lấy dữ liệu từ CSDL
+                    $sql = "SELECT * FROM tbl_cartegory";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        echo '<div class="cartegory-right-content row">';
+                        echo '<ul class="sub-menu">';
+                        // Lặp qua các hàng dữ liệu
+                        while($row = $result->fetch_assoc()) {
+                            
+                            echo '<li><a href="">'. $row["cartegory_name"].'</a></li>'; 
+                           
+                        }
+                      
+                        echo '</ul>';
+                    } 
+                    $conn->close();
+                ?>
+               
             </li>
-            <li><a href="">Sống Khoẻ</a></li>
-            <li><a href="">Thông Tin</a></li>
         </div>
         <div class="orthers">
             <li><input placeholder="Tìm Kiếm" type="text"> <i class="fas fa-search"></i></li>
@@ -89,9 +99,42 @@
             <li><a href="Login_Register/login.php"><i class="fa-solid fa-user"></i></a></li>
         </div>
     </header>
-    <section class="app-container">
-        <p></p>
+    <section class="app-container-index">
+        <div class="container">
+            <h1>Giới thiệu về Công Ty Dược liệu</h1>
+            <p>Công ty TNHH Dược Liệu được thành lập vào tháng 6 năm 2017. Với lợi thế liên kết với vùng trồng dược liệu sạch tại vùng núi Hòa Bình, nơi đây được thiên nhiên ưu ái với khí hậu ôn hòa, mát mẻ, thuận lợi cho việc trồng các cây dược liệu quý hiếm. Sau nhiều năm nghiên cứu và cấy trồng các giống cây thuốc, chúng tôi đã trở thành đơn vị cung ứng dược liệu hàng đầu tại Việt Nam.</p>
+            <p>Các loại dược liệu mà cung cấp đều được áp dụng công nghệ và quy trình sản xuất tiên tiến. Nhờ vậy mà dược tính được giữ lại tốt nhất. Chúng tôi luôn chọn những cây đáp ứng đủ tiêu chí xanh – sạch – khỏe mạnh để đưa đến khách hàng.</p>
+            <p>Ngoài ra, Dược liệu cung cấp đầy đủ các loại cây thuốc nam, dược liệu, đồ ngâm rượu với giá thành tốt nhất trên thị trường. Bạn sẽ không còn lo lắng về chi phí vì chúng rất rẻ so với số tiền bạn phải bỏ ra để điều trị bệnh.</p>
+            <p>Nhờ sự ủng hộ từ khách hàng và đối tác, Dược Liệu đã tồn tại và phát triển đến ngày hôm nay với nhiều đơn hàng hơn. Từ đó, có cơ hội đưa sản phẩm của mình đến tay khách hàng trên toàn quốc.</p>
+            <h1>Sản phẩm tại Dược Liệu</h1>
+            <p>Khi bạn tìm kiếm các loại dược liệu, điều bạn quan tâm đầu tiên chính là cơ sở này có uy tín hay không?</p>
+            <p>Đến với Dược liệu bạn không chỉ mua được cây thuốc với chất lượng tốt nhất mà còn có được sản phẩm với giá thành rẻ nhất.</p>
+            <p>Các nhân viên tại Dược Liệu đều có chuyên môn cao và luôn nhiệt tình với khách hàng. Chúng tôi muốn mỗi khách hàng mà chúng tôi chăm sóc đều nhận được dịch vụ và dược liệu tốt nhất. Đồng thời bạn cũng sẽ được tư vấn để hiểu rõ hơn về từng cây thuốc, tình trạng bệnh và cách sử dụng hợp lý.</p>
+            <img src="https://duoclieuthaison.com/wp-content/uploads/2020/07/Thanh-phan-giai-doc-gan-thai-son-1.jpg" alt="">
+            <p>Với hơn 3 năm nỗ lực và không ngừng học hỏi để nâng cao chất lượng sản phẩm, Dược Liệu luôn mang đến các sản phẩm đạt tiêu chuẩn Y khoa. Chúng tôi quan niệm sức khỏe luôn là quan trọng nhất. Chính vị vậy, mọi hướng đi của chúng tôi luôn nhắm đến lợi ích của khách hàng.</p>
+            <p>Nếu như bạn đang gặp các căn bệnh như: Tiểu đường, mất ngủ, chóng mặt, đau bao tử, nóng trong người,… đừng ngần ngại liên hệ với Dược Liệu nhé. Chúng tôi có các chuyên gia sẽ giúp bạn điều trị bệnh hiệu quả.</p>
+            <h1>Tầm nhìn – Sứ mệnh của Dược Liệu</h1>
+            <p>Với khẩu hiệu: “Mang dược liệu sạch đến tay khách hàng”, Dược liệu luôn nỗ lực hết sức để tạo ra các sản phẩm vừa đáp ứng tiêu chuẩn, vừa đạt chất lượng cao nhất. Chúng tôi muốn giúp mọi người hiểu được tầm quan trọng của việc bảo vệ sức khỏe của mình và người thân. Hiểu được điều đó, bạn sẽ có cuộc sống lành mạnh, an tâm.</p>
+            <p>Tầm nhìn của chúng tôi là đến 2025, Dược Liệu sẽ là đơn vị cung ứng dược liệu hàng đầu tại Việt Nam. Chúng tôi sẽ giúp cho hàng triệu người nâng cao ý thức sử dụng cây thuốc Nam.</p>
+            <h1>Tiêu chí hoạt động Dược Liệu</h1>
+            <p>-Dược Liệu luôn tôn trọng khách hàng và đề cao sự chuyên nghiệp trong thái độ phục vụ. Các sản phẩm dược liệu luôn đạt chất lượng tốt nhất trước khi đem đến cho khách hàng.</p>
+            <p>-Thường xuyên cải tiến, đổi mới công nghệ nhằm cho ra đời nhiều sản phẩm tốt.</p>
+            <p>-Dược Liệu luôn đặt khách hàng là trọng tâm trong quá trình phát triển. Chúng tôi hướng tới xây dựng giá trị tốt đẹp cho người dùng và mong muốn mối quan hệ bền đẹp giữa khách hàng với công ty.</p>
+            <p>-Xây dựng bộ máy hoạt động và đào tạo đội ngũ giỏi, giàu chuyên môn và đạo đức để hoàn thành công việc tốt nhất.</p>
+            <p>-Xây dựng môi trường làm việc năng động, cởi mở để nhân viên làm việc có tâm huyết.</p>
+            <p>Nhờ vào sự tin tưởng của quý khách mà công ty Dược Liệu mới tồn tại và phát triển đến ngày hôm nay. Hiểu được điều đó, chúng tôi sẽ không ngừng nỗ lực để phát triển hơn nữa, tạo ra các sản phẩm chất lượng nhằm cải thiện sức khỏe cộng đồng.</p>
+            <h1>Chính sách bán hàng tại Dược Liệu</h1>
+            <p>1.Trước khi giao tới tận tay khách hàng sản phẩm đã được kiểm định nghiêm ngặt, kĩ lưỡng.</p>
+            <p>2.Không sử dụng hóa chất trong quá trình bảo quản, an toàn cho sức khỏe người sử dụng.</p>
+            <p>3.Quá trình chế biến đúng theo tiêu chuẩn, đảm bảo dược chất không bị mất đi.</p>
+            <p>4.Phát hiện hàng giả, không đúng sản phẩm bồi thường gấp 10 lần giá trị đơn hàng.</p>
+            <p>5.Chuyển phát toàn quốc từ 1 – 5 ngày, nhận hàng kiểm tra mới thanh toán.</p>
+            <p><span>Chúng tôi cam kết cung cấp sản phẩm đảm bảo, tư vấn hoàn toàn miễn phí. Nhân viên chăm sóc khách hàng của chúng tôi rất hân hạnh được phục vụ quý khách.</span></p>
+        </div>
     </section>
+
+    <div class="border-bottom">
+    </div>
 
     <div class="footer-top">
         <li><a href="IMAGE/MainLogo.png"></a></li>

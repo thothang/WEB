@@ -195,6 +195,10 @@ footer {
     margin: 20px;
 }
 
+.border-bottom{
+    width: 100%;
+    border: 2px solid black;
+}
 
 /* --------------------------------------------cartegory--------------------------------------------- */
 .row {
@@ -301,7 +305,7 @@ footer {
 }
 
 
-/* Product */
+/* -----------------------------------Product ------------------------------------------*/
 .product{
     padding: 100px 0;
 
@@ -807,3 +811,16 @@ footer {
     background-color: black;
     color: #fff;
 }
+
+/* -----------------index--------------------- */
+.app-container-index h1{
+    font-size: 1px;
+}
+
+.app-container-index-content p,h1{
+    font-family: var(--main-text-font);
+}
+.app-container-index-content p{
+    padding-left: 100px;
+}
+

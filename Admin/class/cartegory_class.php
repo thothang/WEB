@@ -13,7 +13,7 @@
             $query = "insert into tbl_cartegory(cartegory_name) values ('$cartegory_name')";
             $result = $this -> db ->insert($query);
             header("Location: cartegorylist.php");
-            return $result;
+            // return $result;
         }
 
         public function show_cartegory(){

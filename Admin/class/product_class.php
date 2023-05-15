@@ -28,8 +28,6 @@
             return $result;
         }
 
-        public function update_product(){
-        }
 
         public function insert_product(){
             $product_name = $_POST['product_name'];
@@ -55,7 +53,7 @@
                 }
             }
 
-            // header("Location: productlist.php");
+            header("Location: productlist.php");
             return $result;
         }
 

@@ -72,7 +72,7 @@ header{
     border: 1px solid #dddddd;
 }
 .admin-content-right-cartegory-list table tr td a{
-    padding: 30px;
+    padding-left: 30px;
     font-weight: bold;
 }
 table{

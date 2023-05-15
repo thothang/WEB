@@ -29,18 +29,28 @@
         <div class="menu">
             <li><a href="index.php">Trang Chủ</a></li>
             <li><a href="Cartegory.php">Sản Phẩm</a>
-                <ul class="sub-menu">
-                    <li><a href="">Mất Ngủ - Stress</a></li>
-                    <li><a href="">Giải Độc Gan - Mát Gan</a></li>
-                    <li><a href="">Bồi Bổ Cơ Thể</a></li>
-                    <li><a href="">Huyết Áp - Tim Mạch</a></li>
-                    <li><a href="">Dạ Dày - Tiêu Hoá</a></li>
-                    <li><a href="">Giảm Cân - Làm Đẹp</a></li>
-                    <li><a href="">Xương Khớp - Đau Nhức</a></li>
-                </ul>
+            <?php
+                    include 'PHP/connect.php';
+
+                    // Thực hiện truy vấn lấy dữ liệu từ CSDL
+                    $sql = "SELECT * FROM tbl_cartegory";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        echo '<div class="cartegory-right-content row">';
+                        echo '<ul class="sub-menu">';
+                        // Lặp qua các hàng dữ liệu
+                        while($row = $result->fetch_assoc()) {
+                            
+                            echo '<li><a href="">'. $row["cartegory_name"].'</a></li>'; 
+                           
+                        }
+                      
+                        echo '</ul>';
+                    } 
+                    $conn->close();
+                ?>
+               
             </li>
-            <li><a href="">Sống Khoẻ</a></li>
-            <li><a href="">Thông Tin</a></li>
         </div>
         <div class="orthers">
             <li><input placeholder="Tìm Kiếm" type="text"> <i class="fas fa-search"></i></li>
@@ -159,7 +169,8 @@
 
 
 
-
+<div class="border-bottom">
+    </div>
     <div class="footer-top">
         <li><a href="IMAGE/MainLogo.png"></a></li>
         <li><a href="https://www.facebook.com/100030450396901/">Liên Hệ</a></li>

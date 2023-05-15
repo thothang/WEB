@@ -26,18 +26,28 @@
         <div class="menu">
             <li><a href="index.php">Trang Chủ</a></li>
             <li><a href="Cartegory.php">Sản Phẩm</a>
-                <ul class="sub-menu">
-                    <li><a href="">Mất Ngủ - Stress</a></li>
-                    <li><a href="">Giải Độc Gan - Mát Gan</a></li>
-                    <li><a href="">Bồi Bổ Cơ Thể</a></li>
-                    <li><a href="">Huyết Áp - Tim Mạch</a></li>
-                    <li><a href="">Dạ Dày - Tiêu Hoá</a></li>
-                    <li><a href="">Giảm Cân - Làm Đẹp</a></li>
-                    <li><a href="">Xương Khớp - Đau Nhức</a></li>
-                </ul>
+            <?php
+                    include 'PHP/connect.php';
+
+                    // Thực hiện truy vấn lấy dữ liệu từ CSDL
+                    $sql = "SELECT * FROM tbl_cartegory";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        echo '<div class="cartegory-right-content row">';
+                        echo '<ul class="sub-menu">';
+                        // Lặp qua các hàng dữ liệu
+                        while($row = $result->fetch_assoc()) {
+                            
+                            echo '<li><a href="">'. $row["cartegory_name"].'</a></li>'; 
+                           
+                        }
+                      
+                        echo '</ul>';
+                    } 
+                    $conn->close();
+                ?>
+               
             </li>
-            <li><a href="">Sống Khoẻ</a></li>
-            <li><a href="">Thông Tin</a></li>
         </div>
         <div class="orthers">
             <li><input placeholder="Tìm Kiếm" type="text"> <i class="fas fa-search"></i></li>
@@ -48,23 +58,32 @@
     <!-------------------------------------------- cartegory ---------------------------->
     <section class="cartegory">
         <div class="container">
-            <div class="cartegory-top row">
-                <p>Trang Chủ</p> <span>&#10230</span>
-            </div>
+           
         </div>
         <div class="container">
             <div class="row">
-                <div class="cartegory-left">
-                    <ul>
-                        <li class="cartegory-left-li"><a href="">Mất Ngủ - Stress</a></li>
-                        <li class="cartegory-left-li"><a href="">Giải Độc Gan - Mát Gan</a></li>
-                        <li class="cartegory-left-li"><a href="">Bồi Bổ Cơ Thể</a></li>
-                        <li class="cartegory-left-li"><a href="">Huyết Áp - Tim Mạch</a></li>
-                        <li class="cartegory-left-li"><a href="">Dạ Dày - Tiêu Hoá</a></li>
-                        <li class="cartegory-left-li"><a href="">Giảm Cân - Làm Đẹp</a></li>
-                        <li class="cartegory-left-li"><a href="">Xương Khớp - Đau Nhức</a></li>
-                    </ul>
-                </div>
+
+            <?php
+                    include 'PHP/connect.php';
+
+                    // Thực hiện truy vấn lấy dữ liệu từ CSDL
+                    $sql = "SELECT * FROM tbl_cartegory ORDER BY cartegory_id DESC";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        echo '<div class="cartegory-left">';
+                        echo '<ul>';
+                        // Lặp qua các hàng dữ liệu
+                        while($row = $result->fetch_assoc()) {
+                            echo '<li class="cartegory-left-li"><a href="">'. $row["cartegory_name"].'</a></li>'; 
+                        }
+                      
+                        echo '</ul>';
+                        echo '</div>';
+                    } 
+                    $conn->close();
+                ?>
+
+               
                 <div class="cartegory-right row">
                     <div class="cartegory-right-top-item">
                         <p>Mất Ngủ - Stress</p>
@@ -77,49 +96,45 @@
                         </select>
                     </div>
 
-                    <div class="cartegory-right-content row">
-                        <div class="cartegory-right-content-item">
-                            <a href="Product.php"><img src="IMAGE/SP/Bo-cong-anh.png" alt="">
-                            <h1>Bồ Công Anh</h1>
-                            <p>150.000<sup>đ</sup></p></a>
-                        </div>
-                        <div class="cartegory-right-content-item">
-                            <img src="IMAGE/SP/Cay-xa-den.png" alt="">
-                            <h1>Bồ Công Anh</h1>
-                            <p>150.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cartegory-right-content-item">
-                            <img src="IMAGE/SP/Che-day.png" alt="">
-                            <h1>Bồ Công Anh</h1>
-                            <p>150.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cartegory-right-content-item">
-                            <img src="IMAGE/SP/Giao-co-lam.png" alt="">
-                            <h1>Bồ Công Anh</h1>
-                            <p>150.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cartegory-right-content-item">
-                            <img src="IMAGE/SP/hinh-anh-nu-voi.png" alt="">
-                            <h1>Bồ Công Anh</h1>
-                            <p>150.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cartegory-right-content-item">
-                            <img src="IMAGE/SP/tra-hoa-tam-that.png" alt="">
-                            <h1>Bồ Công Anh</h1>
-                            <p>150.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cartegory-right-content-item">
-                            <img src="IMAGE/SP/Tra-son-mat-hong-sam.png" alt="">
-                            <h1>Bồ Công Anh</h1>
-                            <p>150.000<sup>đ</sup></p>
-                        </div>
-                        <div class="cartegory-right-content-item">
-                            <img src="IMAGE/SP/trai-nhau-kho.png" alt="">
-                            <h1>Bồ Công Anh</h1>
-                            <p>150.000<sup>đ</sup></p>
-                        </div>
-                    </div>
+                    
+                    <?php
+                    include 'PHP/connect.php';
 
+                    // Thực hiện truy vấn lấy dữ liệu từ CSDL
+                    $sql = "SELECT * FROM tbl_product";
+                    $result = $conn->query($sql);
+                
+                    if ($result->num_rows > 0) {
+                        // Bắt đầu div cha
+                        echo '<div class="cartegory-right-content row">';
+                
+                        // Lặp qua các hàng dữ liệu
+                        while($row = $result->fetch_assoc()) {
+                            // Bắt đầu div con
+                            echo '<div class="cartegory-right-content-item">';
+                            // Kiểm tra và hiển thị ảnh
+                          
+                            echo '<a href="Product.php?'.$row["product_id"].'"><img src="IMAGE/SP/'.$row["product_img"].'" alt="">';
+                         
+                            // Hiển thị các cột của hàng dữ liệu
+                            echo '<h1>' . $row["product_name"].'</h1>';
+                            echo '<p>' . $row["product_price"].'<sup>đ</sup></p></a>';
+                
+                            // Kết thúc div con
+                            echo '</div>';
+                        }
+                
+                        // Kết thúc div cha
+                        echo '</div>';
+                    } else {
+                        echo "Không tìm thấy sản phẩm nào.";
+                    }
+                
+                    // Ngắt kết nối CSDL
+                    $conn->close();
+                ?>
+
+                    
                     <div class="cartegory-right-bottom row">
                         <div class="cartegory-right-bottom-item">
                             <p>Hiển Thị 2 <span>|</span> 4 Sản Phẩm</p>
@@ -136,7 +151,8 @@
 
 
     <!-------------------------------------------- footer----------------------------------->
-
+    <div class="border-bottom">
+    </div>
     </section>
     <div class="footer-top">
         <li><a href="IMAGE/MainLogo.png"></a></li>

@@ -32,7 +32,7 @@ include "class/product_class.php";
                         <td><?php echo $result['product_name'] ?></td>
                         <td><?php echo $result['cartegory_id'] ?></td>
                         <td><?php echo $result['product_price'] ?></td>
-                        <td><a href="productdelete.php?product_id-1=<?php echo $result['product_id'] ?>">Xoá</a></td>
+                        <td><a href="productdelete.php?product_id=<?php echo $result['product_id'] ?>">Xoá</a></td>
                     </tr>
                     <?php
                         }
